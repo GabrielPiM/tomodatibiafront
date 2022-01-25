@@ -1,0 +1,25 @@
+<div class="d-flex mb-2">
+  <div class="input-name">Difficulty</div>
+  <span class="score">
+    <div class="score-wrap">
+      <span class="stars-active" [ngStyle]="{ width: difficulty + '%' }">
+        <fa-icon
+          *ngFor="let in of counter(10); let i = index"
+          [icon]="faStar"
+          (mouseenter)="HoverDifficulty(i)"
+          (mouseleave)="LeaveDifficulty()"
+          (click)="SetDifficulty(i)"
+        ></fa-icon>
+      </span>
+      <span class="stars-inactive">
+        <fa-icon
+          *ngFor="let in of counter(10); let i = index"
+          [icon]="faStarR"
+          (mouseenter)="HoverDifficulty(i)"
+          (mouseleave)="LeaveDifficulty()"
+          (click)="SetDifficulty(i)"
+        ></fa-icon>
+      </span>
+    </div>
+  </span>
+</div>

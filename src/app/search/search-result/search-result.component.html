@@ -1,0 +1,12 @@
+<div class="content">
+  <app-char-card></app-char-card>
+  <h3 class="hunt-h1">Recommended Hunts</h3>
+
+  <div class="hunt-card-row">
+    <app-search-result-card
+      *ngFor="let in of counter(5); let i = index"
+    ></app-search-result-card>
+  </div>
+
+  <app-load-more></app-load-more>
+</div>

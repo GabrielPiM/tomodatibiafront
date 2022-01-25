@@ -1,0 +1,54 @@
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #353535 14%, #353535 64%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(13deg, #202124 14%, #202124 64%);
+}
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 15px;
+}
+
+.hunt-card-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content {
+  height: auto;
+  padding-bottom: 5rem;
+  background-image: url(src/assets/imgs/Cobbled_Pavement_Tile.gif);
+  overflow-x: hidden;
+}
+
+.visu-border {
+  border: red 1px solid;
+}
+
+.hunt-h1 {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+/* -------------------- */
+
+@media (max-width: 995px) {
+  .char-info-card {
+    margin-bottom: 1rem;
+  }
+  .hunt-card {
+    margin-bottom: 2rem;
+  }
+  .hunt-h1 {
+    margin-bottom: 2rem;
+  }
+  .char-wrapper {
+    margin-bottom: 6rem;
+  }
+}

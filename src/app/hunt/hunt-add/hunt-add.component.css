@@ -1,0 +1,302 @@
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #353535 14%, #353535 64%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(13deg, #202124 14%, #202124 64%);
+}
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 15px;
+}
+
+.content {
+  height: auto;
+  padding-bottom: 5rem;
+  background-image: url("../../../assets/imgs/Cobbled_Pavement_Tile.gif");
+  overflow-x: hidden;
+  color: white;
+}
+
+/* HUNT-INFO */
+.input-group {
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  width: 70%;
+  height: auto;
+}
+
+.input-name {
+  width: 100px;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+}
+.input-name-p-star {
+  width: 100px;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+}
+.check-input {
+  display: flex;
+  margin-right: 0.5rem;
+}
+.check-item {
+  margin-right: 1rem;
+}
+
+/* desciption */
+.paragraph-w {
+  width: 80%;
+}
+
+/* special-requirements */
+.special-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.qty-spc {
+  margin-right: 1rem;
+  margin-left: 2rem;
+}
+
+/* add-btn */
+.add-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+.add-btn {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+/* ITEM-FRAME */
+.item-name {
+  text-align: center;
+}
+.item-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.3rem;
+}
+.frame {
+  width: 50px;
+  height: 50px;
+  border: 1px white solid;
+}
+.list-frame {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.list-frame-prey {
+  width: 30px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.list-frame-player {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.equip-frame {
+  width: 50px;
+  height: 50px;
+  border: 1px white solid;
+  margin: 0.2rem;
+}
+.frame:hover,
+.equip-frame:hover {
+  cursor: pointer;
+  content: url("../../../assets/imgs/remove-x.png");
+}
+
+/* list */
+.list {
+  min-height: 50px;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid white;
+  width: 60%;
+  justify-content: center;
+  padding: 0;
+
+  border: white 1px solid;
+}
+.list-inside {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-group-item {
+  padding: 0;
+  width: 100%;
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.p-frame {
+  margin-right: 1rem;
+}
+
+.player-item-list:hover {
+  background-color: #d3d3d3;
+}
+/* DROP-LIST */
+.drop-list {
+  position: absolute;
+  height: auto;
+  max-height: 250px;
+  background-color: white;
+  width: 200px;
+  overflow-y: auto;
+}
+.drop-list-inside {
+  width: 100%;
+  height: auto;
+}
+/* TRASH-ICON */
+.trash-icon {
+  color: black;
+  margin-right: 1rem;
+}
+.trash-icon:hover {
+  color: #d9534f;
+}
+
+.hold-space {
+  width: 100px;
+  margin-right: 2rem;
+}
+
+/* player-info */
+
+.input-lvl-qty-func {
+  display: flex;
+}
+/* equipments */
+.equips-wrap {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.equip-type-row {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.equip-type {
+  margin-right: 1rem;
+}
+
+.other-items-inpt {
+  max-width: 100px;
+}
+
+/* imbuemetns */
+.imbuement-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* btn-save */
+
+/* RESPONSIVINES */
+
+@media (max-width: 995px) {
+  .input-group {
+    width: 100%;
+  }
+  .hold-space {
+    display: none;
+  }
+  .input-name {
+    width: 87px;
+    margin-right: 0.3rem;
+  }
+  .input-name-p-star {
+    width: 50px;
+    margin-right: 0.3rem;
+  }
+  .list {
+    width: 100%;
+  }
+  .list-inside {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .other-items {
+    width: 100%;
+  }
+
+  .equip-type-row {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+
+  .add-btn-wrap {
+    width: 100%;
+    justify-content: center;
+
+    margin-top: 2rem;
+  }
+
+  .input-lvl-qty-func-wrap {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .input-lvl-qty-func {
+    flex-wrap: wrap;
+  }
+  .vocations {
+    margin-left: 1rem;
+  }
+  .special-wrap {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .special-wrap > * {
+    margin-bottom: 0.5rem;
+  }
+
+  .special-wrap .add-btn {
+    margin-top: 0.5rem;
+  }
+  .qty-other-items {
+    margin-top: 0.5rem;
+    padding-right: 1.5rem;
+  }
+  .qty-spc {
+    margin-left: 0;
+  }
+}

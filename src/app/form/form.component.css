@@ -1,0 +1,49 @@
+.form {
+  height: auto;
+  width: 400px;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.form-img {
+  width: 100%;
+}
+
+.form-torch {
+  transform: rotate(40deg);
+}
+
+.form-inner {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 90%;
+  flex-wrap: wrap;
+  padding-bottom: 2vw;
+  border-left: 2px solid yellow;
+  border-right: 2px solid yellow;
+}
+
+@media (max-width: 995px) {
+  .form-inner {
+    padding-bottom: 5vw;
+  }
+}
+
+.form-input-wrap {
+  width: 100%;
+}
+
+.loading {
+  width: 70px;
+  height: 70px;
+}
+
+.form-title {
+  width: 100%;
+  color: white;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

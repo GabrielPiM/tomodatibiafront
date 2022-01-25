@@ -1,0 +1,65 @@
+/* CARD */
+
+.hunt-card {
+  width: 300px;
+  height: 200px;
+  margin: 1rem;
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  border: white 1px solid;
+}
+
+.hunt-card-title {
+  background-color: #222222;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 15%;
+}
+
+.hunt-card-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 50%;
+}
+
+.hunt-card-level {
+  text-align: left;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.hunt-card-monster-title {
+  text-align: center;
+  width: 100%;
+}
+
+.hunt-card-monster-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hunt-card-monster-img {
+  width: 50px;
+  height: 50px;
+}
+
+.hunt-card-detail {
+  width: 100%;
+  text-align: center;
+}
+
+.hunt-card-detail a {
+  color: white;
+}
+
+.hunt-card-detail a:hover {
+  color: #00a6c7;
+}
+
+/* ----------------------- */

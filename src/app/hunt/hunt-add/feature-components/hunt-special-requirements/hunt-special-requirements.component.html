@@ -1,0 +1,71 @@
+<!-- SPECIAL Requirements -->
+
+<h5 class="text-center mb-5">
+  Special Requirements
+  <i
+    data-bs-toggle="tooltip"
+    data-bs-placement="right"
+    title=""
+    class="ml-2 far fa-question-circle"
+    aria-hidden="true"
+    data-bs-original-title="Info"
+    aria-label="0 means any team size. 1 means solo."
+  ></i>
+</h5>
+<div class="special-wrap">
+  <!-- TYPE-INPUT  -->
+  <div class="dropdown equip-type">
+    <a
+      class="btn btn-secondary dropdown-toggle"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Type
+    </a>
+    <!-- list-types -->
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><a class="dropdown-item">Key</a></li>
+      <li><a class="dropdown-item">Quest</a></li>
+      <li><a class="dropdown-item">Mount</a></li>
+    </ul>
+  </div>
+  <input type="text" class="form-control w-auto" placeholder="Name" />
+  <div class="d-flex">
+    <div class="qty-spc">Qty</div>
+    <input type="number" class="form-control w-auto" value="1" />
+  </div>
+
+  <div class="add-btn-wrap">
+    <div class="add-btn d-flex justify-content-center align-items-center">
+      <i class="fas fa-plus" aria-hidden="true">&nbsp; Add</i>
+    </div>
+  </div>
+</div>
+<!-- LIST SPC-->
+<div class="d-flex justify-content-center w-100 mt-4">
+  <div class="list-group list">
+    <button type="button" class="list-group-item player-item-list active">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="imgs/Lit_Torch.gif" alt="" class="list-frame" />
+          <div>Key - Key 0001 - x1</div>
+        </div>
+
+        <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+      </div>
+    </button>
+    <button type="button" class="list-group-item player-item-list">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="imgs/Lit_Torch.gif" alt="" class="list-frame" />
+          <div>Key - Key 0001 - x1</div>
+        </div>
+
+        <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+      </div>
+    </button>
+  </div>
+</div>

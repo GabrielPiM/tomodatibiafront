@@ -1,0 +1,29 @@
+.footer {
+  background-color: #202124;
+  flex-wrap: wrap;
+  padding: 2vh;
+}
+
+.footer-links {
+  width: 100%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links :hover {
+  color: #00a6c7;
+  text-decoration: underline;
+}

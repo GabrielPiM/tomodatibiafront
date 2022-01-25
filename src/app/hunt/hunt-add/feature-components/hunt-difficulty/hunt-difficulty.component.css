@@ -1,0 +1,44 @@
+.score {
+  display: block;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.score-wrap {
+  display: inline-block;
+  position: relative;
+  height: auto;
+}
+
+.score .stars-active {
+  color: #eebd01;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  white-space: nowrap;
+  float: left;
+}
+
+.score .stars-inactive {
+  color: grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-text-stroke: initial;
+}
+
+.input-name {
+  width: 100px;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+}
+
+@media (max-width: 995px) {
+  .input-name {
+    width: 87px;
+    margin-right: 0.3rem;
+  }
+}

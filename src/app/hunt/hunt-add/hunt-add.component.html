@@ -1,0 +1,770 @@
+<!-- content -->
+<div class="content">
+  <!-- hunt-info -->
+  <div class="container d-flex flex-column align-items-center pt-5">
+    <h1 class="w-100 text-center">New Hunt</h1>
+    <!-- basic-info -->
+    <div class="input-group d-flex flex-column">
+      <h5 class="text-center mb-5">Hunt Info</h5>
+      <div class="d-flex mb-2">
+        <div class="input-name">Name</div>
+        <input
+          type="text"
+          [(ngModel)]="hunt.name"
+          class="form-control w-auto"
+        />
+      </div>
+      <div class="d-flex mb-2">
+        <div class="input-name">Location</div>
+        <input
+          type="text"
+          [(ngModel)]="hunt.location"
+          class="form-control w-auto"
+        />
+      </div>
+      <div class="d-flex mb-2">
+        <div class="input-name">Level Min</div>
+        <input
+          type="number"
+          [(ngModel)]="hunt.levelMinReq"
+          value="1"
+          class="form-control w-auto"
+        />
+      </div>
+
+      <div class="d-flex mb-2">
+        <div class="input-name">Xp/H</div>
+        <input
+          type="number"
+          [(ngModel)]="hunt.xpHr"
+          value="0"
+          class="form-control w-auto"
+        />
+      </div>
+
+      <div class="d-flex mb-2">
+        <div class="input-name">Tutorial URL</div>
+        <input
+          type="text"
+          placeholder="Youtube only"
+          class="form-control w-auto"
+          [(ngModel)]="hunt.tutorialVideoUrl"
+        />
+      </div>
+
+      <app-hunt-difficulty
+        (difficultyEvent)="diffChangedHandler($event)"
+      ></app-hunt-difficulty>
+
+      <!-- Premium -->
+      <div class="d-flex mb-2">
+        <div class="input-name">Premium</div>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          [(ngModel)]="hunt.isPremium"
+        />
+      </div>
+
+      <!-- version -->
+      <app-hunt-versions></app-hunt-versions>
+    </div>
+
+    <!-- SPECIAL Requirements -->
+    <app-hunt-special-requirements
+      class="input-group d-flex justify-content-center flex-wrap"
+    ></app-hunt-special-requirements>
+
+    <!-- search-monsters -->
+    <div class="d-flex justify-content-center input-group flex-wrap">
+      <h5 class="text-center w-100 mb-5">Monsters</h5>
+      <div class="d-flex flex-wrap w-100 mb-3">
+        <div class="input-name">Name</div>
+        <input placeholder="Name" type="text" class="form-control w-auto" />
+      </div>
+      <div class="w-100 w d-flex justify-content-center">
+        <div class="list list-inside">
+          <div class="item-frame">
+            <img src="assets/imgs/Lit_Torch.gif" alt="" class="frame" />
+            <a href="" class="item-name link-light">Juggernaut</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- description -->
+    <div class="input-group flex-column">
+      <h5 class="text-center mb-5">
+        Description
+        <i
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          title=""
+          class="ml-2 far fa-question-circle"
+          aria-hidden="true"
+          data-bs-original-title="Info"
+          aria-label="0 means any team size. 1 means solo."
+        ></i>
+      </h5>
+      <div class="d-flex">
+        <div class="input-name">Sub-title</div>
+        <input type="text" class="form-control w-auto" />
+      </div>
+      <div class="d-flex mt-2">
+        <div class="input-name">Paragraph</div>
+        <textarea class="form-control w-75" rows="3"></textarea>
+      </div>
+      <!-- add-btn -->
+      <div class="add-btn-wrap mb-4 mt-4 d-flex justify-content-center">
+        <div class="add-btn d-flex justify-content-center align-items-center">
+          <i class="fas fa-plus">Add</i>
+        </div>
+      </div>
+      <!-- LIST -->
+      <div class="d-flex justify-content-center w-100 mt-4">
+        <div class="list">
+          <button type="button" class="list-group-item player-item-list active">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/feather_and_note.png"
+                    alt=""
+                    class="list-frame"
+                  />
+                  <div>Paragraph - 1</div>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/feather_and_note.png"
+                    alt=""
+                    class="list-frame"
+                  />
+                  <div>Paragraph - 2</div>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- player-info -->
+  <div class="container d-flex flex-column align-items-center mt-5">
+    <h3>Player(s) info</h3>
+    <!-- Players -->
+    <div class="input-group r">
+      <h5 class="text-center w-100 mb-5">Player</h5>
+      <div class="input-lvl-qty-func-wrap">
+        <!-- vocation-radio -->
+        <div class="d-flex mb-3">
+          <div class="input-name">Vocation</div>
+          <div class="vocations">
+            <div class="form-check form-check-inline">
+              <input
+                checked
+                class="form-check-input"
+                type="radio"
+                name="Vocations"
+                id=""
+                value=""
+              />
+              <label class="form-check-label">Knight</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="Vocations"
+                id=""
+                value=""
+              />
+              <label class="form-check-label">Druid</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="Vocations"
+                id=""
+                value=""
+              />
+              <label class="form-check-label">Paladin</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="Vocations"
+                id=""
+                value=""
+              />
+              <label class="form-check-label">Sorcerer</label>
+            </div>
+          </div>
+        </div>
+        <!-- level-function-qty -->
+        <div class="mb-3">
+          <div class="input-lvl-qty-func">
+            <div class="d-flex align-items-center mb-2">
+              <div class="input-name m-0 m-1">Level</div>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                title=""
+                class="m-1 far invisible fa-question-circle"
+                aria-hidden="true"
+                data-bs-original-title="Sio, tank, damage, anything."
+                aria-label="0 means any team size. 1 means solo."
+              ></i>
+              <input
+                type="text"
+                min="1"
+                placeholder="1"
+                class="form-control w-50"
+              />
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <div class="input-name m-0 m-1">Function</div>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                title=""
+                class="m-1 far fa-question-circle"
+                aria-hidden="true"
+                data-bs-original-title="Sio, tank, damage, anything."
+                aria-label="0 means any team size. 1 means solo."
+              ></i>
+              <input
+                type="text"
+                min="1"
+                placeholder="Sio, Tank, Damage..."
+                class="form-control w-50"
+              />
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <div class="input-name m-0 m-1">Qty</div>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="right"
+                title=""
+                class="m-1 far fa-question-circle"
+                aria-hidden="true"
+                data-bs-original-title="More of the same."
+                aria-label="0 means any team size. 1 means solo."
+              ></i>
+              <input
+                type="number"
+                min="1"
+                placeholder="1"
+                class="form-control w-50"
+              />
+            </div>
+            <div class="add-btn-wrap">
+              <div
+                class="add-btn d-flex justify-content-center align-items-center"
+              >
+                <i class="fas fa-plus" aria-hidden="true">&nbsp; Add</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- list players -->
+        <div class="d-flex justify-content-center w-100 mt-4">
+          <div class="list">
+            <button
+              type="button"
+              class="list-group-item player-item-list active"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="m-lg-3 d-flex align-items-center">
+                    <img
+                      src="imgs/maleSorcerer.gif"
+                      alt=""
+                      class="list-frame-player"
+                    />
+                    <div>P1 - Sorcerer - Damage - x1</div>
+                  </div>
+                </div>
+
+                <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- equips -->
+    <div class="input-group d-flex justify-content-center flex-wrap">
+      <h5 class="sub-title">Equipments</h5>
+      <h6 class="text-center w-100 mb-5">P1 - Sorcerer</h6>
+      <!-- equips -->
+      <div class="equips-wrap">
+        <!-- TYPE-INPUT  -->
+
+        <div class="equip-type-row">
+          <div class="d-flex">
+            <div class="dropdown equip-type">
+              <a
+                class="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Amulet
+              </a>
+              <!-- list-types -->
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item">Amulet</a></li>
+                <li><a class="dropdown-item">Helmet</a></li>
+                <li><a class="dropdown-item">Backpack</a></li>
+                <li><a class="dropdown-item">Left-weapon</a></li>
+                <li><a class="dropdown-item">Armor</a></li>
+                <li><a class="dropdown-item">Right-weapon</a></li>
+                <li><a class="dropdown-item">Ring</a></li>
+                <li><a class="dropdown-item">Legs</a></li>
+                <li><a class="dropdown-item">Ammo</a></li>
+                <li><a class="dropdown-item">Boots</a></li>
+                <li><a class="dropdown-item">Other Items</a></li>
+              </ul>
+            </div>
+            <div class="">
+              <input
+                type="text"
+                class="form-control w-auto"
+                placeholder="Name"
+              />
+              <!-- DROP-LIST -->
+              <div class="drop-list">
+                <div class="drop-list-inside">
+                  <button
+                    type="button"
+                    class="list-group-item player-item-list"
+                  >
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex align-items-center">
+                        <img src="imgs/200.gif" alt="" class="list-frame" />
+                        <div>Loading</div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="list-group-item player-item-list"
+                  >
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex align-items-center">
+                        <img src="imgs/void.png" alt="" class="list-frame" />
+                        <div>Void item name</div>
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="list-group-item player-item-list"
+                  >
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex align-items-center">
+                        <img src="imgs/void.png" alt="" class="list-frame" />
+                        <div>Void item name</div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QTY -->
+          <div class="d-flex w-100 justify-content-end qty-other-items">
+            <div class="input-name">Qty</div>
+            <input
+              type="number"
+              value="1"
+              class="form-control other-items-inpt"
+            />
+          </div>
+        </div>
+
+        <!-- EQUIPS-grade -->
+        <div class="d-flex justify-content-center flex-wrap">
+          <div class="d-flex mt-3 w-100 justify-content-center">
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+          </div>
+          <div class="d-flex w-100 justify-content-center">
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+          </div>
+          <div class="d-flex w-100 justify-content-center">
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+          </div>
+          <div class="d-flex w-100 justify-content-center">
+            <img src="imgs/Lit_Torch.gif" alt="" class="equip-frame" />
+          </div>
+        </div>
+        <!-- OTHER-ITEMS -->
+        <h6 class="text-center w-100 mt-4">Other Items</h6>
+        <div class="w-100 w d-flex justify-content-center">
+          <div class="list list-inside">
+            <div class="item-frame">
+              <img src="imgs/Lit_Torch.gif" alt="" class="frame" />
+              <a href="" class="item-name link-light">Torch</a>
+              <div>x1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- imbuements -->
+    <div class="input-group">
+      <h5 class="text-center w-100">Imbuements</h5>
+      <h6 class="text-center w-100 mb-5">P1 - Sorcerer</h6>
+      <!-- inbue-inputs -->
+      <div class="d-flex flex-wrap">
+        <div class="d-flex w-auto">
+          <div class="input-name">Type</div>
+          <input
+            type="text"
+            placeholder="Ex: void"
+            class="form-control w-auto mb-2"
+          />
+        </div>
+        <div class="d-flex w-auto">
+          <div class="input-name">Qty</div>
+          <input type="number" value="1" class="form-control w-auto" />
+        </div>
+      </div>
+      <!-- imbuement-level-radio -->
+      <div class="d-flex flex-wrap w-100 justify-content-center mt-2">
+        <div class="vocations">
+          <div class="form-check form-check-inline">
+            <input
+              checked
+              class="form-check-input active"
+              type="radio"
+              name="Imbuement"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Basic</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Imbuement"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Intricate</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Imbuement"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Powerful</label>
+          </div>
+        </div>
+      </div>
+      <!-- add-btn -->
+      <div class="add-btn-wrap d-flex w-100 justify-content-center mt-4 mb-4">
+        <div class="add-btn d-flex justify-content-center align-items-center">
+          <i class="fas fa-plus" aria-hidden="true">&nbsp; Add</i>
+        </div>
+      </div>
+      <!-- imbue-list -->
+      <div class="d-flex justify-content-center w-100 mt-4">
+        <div class="list">
+          <button type="button" class="list-group-item player-item-list active">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img src="imgs/void.png" alt="" class="list-frame" />
+                <div>Void - Intricate - x1</div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- prey    -->
+    <div class="input-group">
+      <h5 class="text-center w-100">Prey</h5>
+      <h6 class="text-center w-100 mb-5">P1 - Sorcerer</h6>
+      <!-- Prey-inputs -->
+      <div class="d-flex flex-wrap">
+        <div class="input-name">Monster</div>
+        <input
+          type="text"
+          placeholder="Name"
+          class="form-control w-auto mb-2"
+        />
+      </div>
+      <!-- Prey-Type-radio -->
+      <div class="d-flex flex-wrap w-100 justify-content-center mt-2">
+        <div class="vocations">
+          <div class="form-check form-check-inline">
+            <input
+              checked
+              class="form-check-input active"
+              type="radio"
+              name="Prey"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Xp</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Prey"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Loot</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Prey"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Damage</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Prey"
+              id=""
+              value=""
+            />
+            <label class="form-check-label">Damage Reduction</label>
+          </div>
+        </div>
+      </div>
+      <!-- stars -->
+      <div class="d-flex flex-wrap mt-3">
+        <div class="input-name-p-star">Stars</div>
+        <span class="score">
+          <div class="score-wrap">
+            <span class="stars-active" style="width: 50%">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+            <span class="stars-inactive">
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </span>
+          </div>
+        </span>
+      </div>
+      <!-- add-btn -->
+      <div class="add-btn-wrap d-flex w-100 justify-content-center mt-4 mb-4">
+        <div class="add-btn d-flex justify-content-center align-items-center">
+          <i class="fas fa-plus" aria-hidden="true">&nbsp; Add</i>
+        </div>
+      </div>
+      <!-- Prey-list -->
+      <div class="d-flex justify-content-center w-100 mt-4">
+        <div class="list">
+          <button type="button" class="list-group-item player-item-list active">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/damage_boost.png"
+                    alt=""
+                    class="list-frame-prey"
+                  />
+                  <div>Damage</div>
+                </div>
+
+                <img src="imgs/Angry_Demon.gif" alt="" class="list-frame" />
+                <div>
+                  Demon - 5 <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/damage_boost.png"
+                    alt=""
+                    class="list-frame-prey"
+                  />
+                  <div>Damage</div>
+                </div>
+
+                <img src="imgs/Angry_Demon.gif" alt="" class="list-frame" />
+                <div>
+                  Demon - 5 <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/damage_boost.png"
+                    alt=""
+                    class="list-frame-prey"
+                  />
+                  <div>Damage</div>
+                </div>
+
+                <img src="imgs/Angry_Demon.gif" alt="" class="list-frame" />
+                <div>
+                  Demon - 5 <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="list-group-item player-item-list">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="m-lg-3 d-flex align-items-center">
+                  <img
+                    src="imgs/damage_boost.png"
+                    alt=""
+                    class="list-frame-prey"
+                  />
+                  <div>Damage</div>
+                </div>
+
+                <img src="imgs/Angry_Demon.gif" alt="" class="list-frame" />
+                <div>
+                  Demon - 5 <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <i class="fas fa-trash trash-icon" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- btn-save//preview -->
+  <div class="w-100 d-flex justify-content-center">
+    <div class="d-flex w-75 justify-content-around">
+      <button type="button" class="mr-2 btn btn-light">Preview</button>
+      <button type="button" class="mr-2 btn btn-success">Save</button>
+    </div>
+  </div>
+</div>
