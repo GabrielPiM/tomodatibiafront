@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientVersion } from './feature-components/hunt-versions/hunt-versions.component';
 
 @Component({
   selector: 'app-hunt-add',
@@ -10,6 +11,10 @@ export class HuntAddComponent implements OnInit {
 
   diffChangedHandler(diff: number) {
     this.hunt.difficulty = diff;
+  }
+
+  versionChangedHandler(version: ClientVersion[]) {
+    this.hunt.huntClientVersions = version;
   }
 
   //#region hunt objct
@@ -27,7 +32,7 @@ export class HuntAddComponent implements OnInit {
     isPremium: true,
     huntClientVersions: [
       {
-        id: 0,
+        id: 1,
         idClientVersion: 1,
       },
     ],

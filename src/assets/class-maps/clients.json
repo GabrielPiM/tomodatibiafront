@@ -2,16 +2,19 @@
   {
     "id": 0,
     "idClientVersion": 1,
-    "name": "7.1 ... 7.X"
+    "name": "7.1 ... 7.X",
+    "check": false
   },
   {
     "id": 0,
     "idClientVersion": 2,
-    "name": "8.0 ... 8.X"
+    "name": "8.0 ... 8.X",
+    "check": false
   },
   {
     "id": 0,
     "idClientVersion": 3,
-    "name": "9.0 ... Gloxbal"
+    "name": "9.0 ... Global",
+    "check": false
   }
 ]

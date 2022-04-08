@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -21,18 +21,16 @@ export class HuntVersionsComponent implements OnInit {
     // console.log(JSON.parse(String(this.clients)));
   }
 
+  @Output() clientVersionEvent = new EventEmitter<ClientVersion>();
+
+  setVersion(id: number) {
+    let version = this.clients.find((c) => c.idClientVersion == id);
+    version!.check = !version?.check;
+  }
+
   ngOnInit(): void {
     this.getJSON();
 
-    // this.clients.push({ id: 1, idClientVersion: 1, name: 'x' });
-    this.clients.push({ id: 1, idClientVersion: 1, name: 'y' });
-
-    console.log('ids');
-    for (let index = 0; index < this.clients.length; index++) {
-      console.log(this.clients[index].id + ' x');
-    }
-
-    console.log('all');
     console.log(this.clients);
   }
 
@@ -40,7 +38,6 @@ export class HuntVersionsComponent implements OnInit {
     this.http.get('assets/class-maps/clients.json').subscribe(
       (data) => Array.prototype.push.apply(this.clients, <ClientVersion[]>data),
 
-      // data=>console.log(data),
       (error) => console.log(error)
     );
   }
@@ -50,4 +47,5 @@ export interface ClientVersion {
   id: number;
   idClientVersion: number;
   name: string;
+  check: boolean;
 }
