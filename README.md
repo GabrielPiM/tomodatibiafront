@@ -2,4 +2,4 @@
 Link -> https://github.com/GabrielPiM/TomodaTibia/tree/Final
 
 
-![Preview1](./tomodatibiafront/src/assets/github-imgs/SS-TomodaTibiaFront.png)  
+![Preview1](./src/assets/github-imgs/SS-TomodaTibiaFront.png)  
